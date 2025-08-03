@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AuthGradientButton extends StatelessWidget {
-  const AuthGradientButton({super.key});
+  final String buttonText;
+  final VoidCallback onTap;
+  const AuthGradientButton(
+      {super.key, required this.buttonText, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +23,13 @@ class AuthGradientButton extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(7)),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         child: Text(
-          "Sign-Up",
+          buttonText,
           style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
         ),
         style: ElevatedButton.styleFrom(
-          fixedSize: const Size(395, 55),
+          fixedSize: const Size(395, 50),
           backgroundColor: Pallete.transparentColor,
           shadowColor: Pallete.transparentColor,
         ),

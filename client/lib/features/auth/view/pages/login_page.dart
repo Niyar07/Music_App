@@ -5,22 +5,20 @@ import 'package:flutter/services.dart';
 
 import '../widgets/custom_field.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
-  final nameController = TextEditingController();
+class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -39,15 +37,11 @@ class _SignupPageState extends State<SignupPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Sign Up.",
+                "Sign In.",
                 style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 25,
-              ),
-              CustomField(
-                controller: nameController,
-                hintText: 'Name',
               ),
               const SizedBox(
                 height: 15,
@@ -68,7 +62,7 @@ class _SignupPageState extends State<SignupPage> {
                 height: 15,
               ),
               AuthGradientButton(
-                buttonText: 'Sign Up',
+                buttonText: 'Log In',
                 onTap: () {},
               ),
               const SizedBox(
@@ -76,11 +70,11 @@ class _SignupPageState extends State<SignupPage> {
               ),
               RichText(
                 text: TextSpan(
-                  text: 'Already have an Account? ',
+                  text: "Don't have an Account? ",
                   style: Theme.of(context).textTheme.titleMedium,
                   children: [
                     TextSpan(
-                        text: 'Sign in',
+                        text: 'Sign Up',
                         style: TextStyle(
                             color: Pallete.gradient2,
                             fontWeight: FontWeight.bold)),
